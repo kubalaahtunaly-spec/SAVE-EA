@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<title>Заявка | СЕЙВ-EA</title>
+
+<link rel="icon" type="image/png" href="иконка.png">
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+    color: #1d1d1d;
+}
+
+.header {
+    background: #2c4a6e;
+    color: white;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-btn {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+
+.back-btn:hover {
+    background: #1f3652;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dcdcdc;
+    padding: 24px;
+    border-radius: 6px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+h2 {
+    margin-top: 0;
+    border-left: 4px solid #2c4a6e;
+    padding-left: 10px;
+}
+
+/* поля */
+input {
+    width: 280px;
+    display: block;
+    margin: 10px auto;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2c4a6e;
+}
+
+/* кнопка */
+button {
+    width: 280px;
+    display: block;
+    margin: 18px auto 0;
+    padding: 12px;
+    background: #2c4a6e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.error {
+    margin-top: 15px;
+    text-align: center;
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+/* системное уведомление */
+.notice {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <a href="index.html" class="back-btn">← Назад</a>
+    <div>СЕЙВ-EA | Подача заявки</div>
+</div>
+
+<div class="container">
+<div class="card">
+
+<h2>Форма заявки</h2>
+
+<input id="name" placeholder="Имя">
+<input id="surname" placeholder="Фамилия">
+<input id="year" placeholder="Год рождения" maxlength="4">
+
+<button onclick="submitForm()">Отправить</button>
+
+<div id="error" class="error"></div>
+
+<div class="notice">
+<strong>Системное уведомление:</strong><br><br>
+Пожалуйста, указывайте достоверные персональные данные.  
+Информация сверяется с внутренним реестром системы.<br><br>
+
+В случае выявления несоответствий заявитель может быть  
+временно ограничен в подаче новых заявок сроком до 12 месяцев.<br><br>
+
+Благодарим за соблюдение регламента обработки данных.
+</div>
+
+</div>
+</div>
+
+<script>
+function onlyLetters(input) {
+    input.value = input.value.replace(/[^a-zA-Zа-яА-ЯёЁ]/g, "");
+}
+
+document.getElementById("name").addEventListener("input", function() {
+    onlyLetters(this);
+});
+
+document.getElementById("surname").addEventListener("input", function() {
+    onlyLetters(this);
+});
+
+document.getElementById("year").addEventListener("input", function() {
+    this.value = this.value.replace(/\D/g, "");
+});
+
+function submitForm() {
+    const name = document.getElementById("name").value.trim();
+    const surname = document.getElementById("surname").value.trim();
+    const year = document.getElementById("year").value.trim();
+    const error = document.getElementById("error");
+
+    error.innerText = "";
+
+    if (!name || !surname || !year) {
+        error.innerText = "Заполните все поля";
+        return;
+    }
+
+    if (name.length < 2) {
+        error.innerText = "Имя слишком короткое";
+        return;
+    }
+
+    if (surname.length < 3) {
+        error.innerText = "Фамилия слишком короткая";
+        return;
+    }
+
+    if (year.length !== 4) {
+        error.innerText = "Введите корректный год";
+        return;
+    }
+
+    localStorage.setItem("user", JSON.stringify({
+        name,
+        surname,
+        year
+    }));
+
+    window.location.href = "processing.html";
+}
+</script>
+
+</body>
+</html>

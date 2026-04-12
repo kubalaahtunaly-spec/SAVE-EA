@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>СЕЙВ-EA | Работа</title>
+
+<link rel="icon" type="image/png" href="иконка.png">
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+    color: #0f172a;
+}
+
+.system-banner {
+    background: #111827;
+    color: #9ca3af;
+    font-size: 12px;
+    padding: 8px 40px;
+    letter-spacing: 1px;
+}
+
+header {
+    background: #2c4a6e;
+    color: white;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .title { font-size: 18px; }
+header .meta { font-size: 12px; opacity: 0.85; }
+
+nav {
+    background: white;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 40px;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    margin-right: 18px;
+    text-decoration: none;
+    color: #2c4a6e;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dcdcdc;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    border-radius: 6px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+    border-left: 4px solid #2c4a6e;
+    padding-left: 10px;
+}
+
+/* ===================== */
+/* CAROUSEL (ОБНОВЛЕНО)  */
+/* ===================== */
+
+.carousel {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 10px 4px 18px;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.carousel::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 10px;
+}
+.carousel::-webkit-scrollbar-track {
+    background: #eef1f5;
+}
+
+.job-card {
+    min-width: 340px;
+    max-width: 340px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #d6d6d6;
+    border-left: 4px solid #2c4a6e;
+    border-radius: 12px;
+    padding: 16px 16px 14px;
+    scroll-snap-align: start;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+}
+
+.job-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #0f172a;
+    letter-spacing: 0.2px;
+    padding-left: 10px;
+    border-left: 3px solid #60a5fa;
+}
+
+.job-text {
+    font-family: "Georgia", serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #111827;
+    white-space: pre-line;
+}
+
+/* маленький "служебный штамп" */
+.job-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 8px;
+    background: #e8f0fe;
+    color: #1e3a8a;
+    border-radius: 999px;
+    margin-bottom: 10px;
+}
+
+/* INFO BLOCKS */
+.bottom-info {
+    font-family: "Georgia", serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #111827;
+    margin-top: 18px;
+}
+
+.hotline {
+    margin-top: 10px;
+    padding: 12px;
+    border-left: 4px solid #2c4a6e;
+    background: #e8f0fe;
+    font-family: "Georgia", serif;
+    font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="system-banner">
+    СИСТЕМА АКТИВНА
+</div>
+
+<header>
+    <div class="title">СEЙВ-EA | Объявления</div>
+    <div class="meta">раздел: работа и обучение</div>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="purpose.html">Цель</a>
+    <a href="history.html">История</a>
+    <a href="contours.html">Контуры</a>
+    <a href="ark.html">Ковчег</a>
+    <a href="jobs.html">Работа</a>
+    <a href="support.html">Поддержка</a>
+</nav>
+
+<div class="container">
+
+<section class="card">
+    <h2>ОБЪЯВЛЕНИЯ: РАБОТА И ОБУЧЕНИЕ</h2>
+
+    <div class="carousel">
+
+        <div class="job-card">
+            <div class="job-tag">ТРАНСПОРТ / ВАХТА</div>
+            <div class="job-title">Подводные транспортные экипажи</div>
+            <div class="job-text">
+Актуальные наборы в системе «Сейв»
+
+Формат: очная вахта
+Тип занятости: контрактная служба
+
+Обязанности:
+• сопровождение грузовых потоков
+• контроль герметичности судна
+• работа в условиях ограниченной видимости
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-tag">ОБУЧЕНИЕ / СИСТЕМЫ</div>
+            <div class="job-title">Операторы удалённого управления</div>
+            <div class="job-text">
+Программа подготовки операторов виртуальных интерфейсов.
+
+Навыки:
+• дистанционный контроль техники
+• управление транспортом без присутствия
+• нейроадаптивные системы
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-tag">ИНЖЕНЕРИЯ</div>
+            <div class="job-title">Инженеры жизнеобеспечения</div>
+            <div class="job-text">
+Системы:
+• очистка воды
+• фильтрация воздуха
+• температурный баланс
+
+Критически важная инфраструктура ковчега.
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-tag">АГРОСЕКТОР</div>
+            <div class="job-title">Агротехники</div>
+            <div class="job-text">
+Работа в замкнутых биомодулях.
+
+• выращивание культур
+• восстановление видов
+• контроль экосистем
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-tag">СОЦИАЛЬНЫЙ КОНТРОЛЬ</div>
+            <div class="job-title">Смотрители зон</div>
+            <div class="job-text">
+Поддержание порядка в:
+• жилых секторах
+• общественных пространствах
+• коридорных системах
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-tag">НАБЛЮДЕНИЕ</div>
+            <div class="job-title">Операторы внешнего наблюдения</div>
+            <div class="job-text">
+Мониторинг среды:
+• вода
+• излучение
+• движение объектов
+
+Изоляционные смены.
+            </div>
+        </div>
+
+        <div class="job-card">
+            <div class="job-tag">ОБЯЗАТЕЛЬНОЕ ОБУЧЕНИЕ</div>
+            <div class="job-title">Гражданская адаптация</div>
+            <div class="job-text">
+Базовый курс:
+• правила поведения
+• самоконтроль
+• взаимодействие в системе
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bottom-info">
+        ДОПОЛНИТЕЛЬНОЕ УВЕДОМЛЕНИЕ:<br><br>
+        Участие в программах влияет на статус, ресурсы и жилую квоту.
+    </div>
+
+    <div class="hotline">
+        ПРИ ЗАИНТЕРЕСОВАННОСТИ СВЯЖИТЕСЬ С ГОРЯЧЕЙ ЛИНИЕЙ СИСТЕМЫ «СЕЙВ-EA».
+    </div>
+
+</section>
+
+</div>
+
+<footer>
+    © СЕЙВ-EA
+</footer>
+
+</body>
+</html>

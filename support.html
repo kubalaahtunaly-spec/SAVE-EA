@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>СЕЙВ-EA | Поддержка</title>
+
+<link rel="icon" type="image/png" href="иконка.png">
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+    color: #0f172a;
+}
+
+.system-banner {
+    background: #111827;
+    color: #9ca3af;
+    font-size: 12px;
+    padding: 8px 40px;
+    letter-spacing: 1px;
+}
+
+header {
+    background: #2c4a6e;
+    color: white;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .title { font-size: 18px; }
+header .meta { font-size: 12px; opacity: 0.85; }
+
+nav {
+    background: white;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 40px;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    margin-right: 18px;
+    text-decoration: none;
+    color: #2c4a6e;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dcdcdc;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    border-radius: 6px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+    border-left: 4px solid #2c4a6e;
+    padding-left: 10px;
+}
+
+/* SUPPORT BLOCK */
+.support-text {
+    font-family: "Georgia", serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #111827;
+}
+
+/* NUMBER DISPLAY */
+.hotline {
+    margin-top: 14px;
+    padding: 14px;
+    border-left: 4px solid #2c4a6e;
+    background: #e8f0fe;
+    font-family: monospace;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="system-banner">
+    СИСТЕМА АКТИВНА
+</div>
+
+<header>
+    <div class="title">СEЙВ-EA | Поддержка</div>
+    <div class="meta">единая информационная служба</div>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="purpose.html">Цель</a>
+    <a href="history.html">История</a>
+    <a href="contours.html">Контуры</a>
+    <a href="ark.html">Ковчег</a>
+    <a href="jobs.html">Работа</a>
+    <a href="support.html">Поддержка</a>
+</nav>
+
+<div class="container">
+
+<section class="card">
+
+    <h2>СЛУЖБА ПОДДЕРЖКИ</h2>
+
+    <div class="support-text">
+        По всем вопросам, связанным с трудоустройством, обучением и распределением квот,
+        обращайтесь в единую информационную службу программы "СЕЙВ-ЕА".
+        <br><br>
+        Горячая линия: <span id="hotline"></span><br>
+        Внутренний канал: 021 (для связи внутри ковчега)<br><br>
+
+        Обращения обрабатываются в порядке очереди.<br>
+        Рекомендуется заранее подготовить идентификационный номер и данные профиля.
+    </div>
+
+</section>
+
+</div>
+
+<footer>
+    © СЕЙВ-EA
+</footer>
+
+<script>
+function randomDigit() {
+    return Math.floor(Math.random() * 10);
+}
+
+function generatePhone() {
+    const pattern = "8-800-643-00-21";
+    let result = "";
+
+    for (let i = 0; i < pattern.length; i++) {
+        const c = pattern[i];
+        if (c >= "0" && c <= "9") {
+            result += randomDigit();
+        } else {
+            result += c;
+        }
+    }
+
+    return result;
+}
+
+function updateHotline() {
+    document.getElementById("hotline").innerText = generatePhone();
+}
+
+setInterval(updateHotline, 120);
+updateHotline();
+</script>
+
+</body>
+</html>

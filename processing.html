@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>СЕЙВ-EA | Обработка запроса</title>
+<link rel="icon" type="image/png" href="иконка.png">
+<style>
+body {
+    margin: 0;
+    background: #0b1220;
+    color: #e5e7eb;
+    font-family: "Segoe UI", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 460px;
+    text-align: center;
+}
+
+.header {
+    font-size: 16px;
+    color: #9ca3af;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.msg {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #d1d5db;
+}
+
+.status {
+    color: #60a5fa;
+}
+
+.final {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #e5e7eb; /* нейтральный цвет */
+    letter-spacing: 1px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="box">
+
+<div class="header">
+СИСТЕМА ЕДИНОГО ГОСУДАРСТВЕННОГО РЕЕСТРА | МОДУЛЬ ОБРАБОТКИ ЗАЯВКИ
+</div>
+
+<div class="msg status">СТАТУС: обработка запроса и сверка данных...</div>
+
+</div>
+
+<script>
+const box = document.getElementById("box");
+
+function add(text, cls="msg") {
+    const d = document.createElement("div");
+    d.className = cls;
+    d.innerText = text;
+    box.appendChild(d);
+}
+
+setTimeout(() => {
+    add("ЭТАП 1: проверка идентификационных данных");
+}, 1500);
+
+setTimeout(() => {
+    add("ЭТАП 2: сверка с федеральным реестром");
+}, 3000);
+
+setTimeout(() => {
+    add("РЕЗУЛЬТАТ: данные не подтверждены");
+}, 4500);
+
+setTimeout(() => {
+    add("РЕШЕНИЕ: заявка отклонена оператором системы");
+}, 6000);
+
+setTimeout(() => {
+    add("СТАТУС: рано", "final");
+}, 7500);
+
+setTimeout(() => {
+    window.location.href = "index1.html";
+}, 9000);
+</script>
+
+</body>
+</html>

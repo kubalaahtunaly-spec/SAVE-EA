@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>СЕЙВ-EA | Главная</title>
+
+<link rel="icon" type="image/png" href="иконка.png">
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef1f5;
+    color: #1d1d1d;
+}
+
+.info-text,
+p,
+strong,
+#waterText,
+#uvText,
+#uvStatus,
+.warning-box,
+.timer {
+    font-family: "Georgia", serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #111827;
+}
+
+.system-banner {
+    background: #111827;
+    color: #9ca3af;
+    font-size: 12px;
+    padding: 8px 40px;
+    letter-spacing: 1px;
+}
+
+header {
+    background: #2c4a6e;
+    color: white;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .title {
+    font-size: 18px;
+}
+
+header .meta {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+nav {
+    background: white;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 40px;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    margin-right: 18px;
+    text-decoration: none;
+    color: #2c4a6e;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dcdcdc;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    border-radius: 6px;
+}
+
+.status-pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 10px;
+    background: #e8f0fe;
+    color: #1e3a8a;
+    border-radius: 999px;
+    margin-bottom: 10px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+    border-left: 4px solid #2c4a6e;
+    padding-left: 10px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.water-bar {
+    height: 18px;
+    background: #d8d8d8;
+    margin-top: 10px;
+}
+
+.water-fill {
+    height: 100%;
+    background: #2f6fed;
+    width: 0%;
+}
+
+.uv {
+    background: #a855f7;
+}
+
+.warning-box {
+    margin-top: 15px;
+    padding: 12px;
+    border-left: 4px solid #ff3b3b;
+    background: linear-gradient(90deg, #fff3f3, #ffecec);
+    font-size: 13px;
+    color: #8b0000;
+    animation: pulse 2s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 25px;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<div class="system-banner">
+    СИСТЕМА АКТИВНА
+</div>
+
+<header>
+    <div class="title">СEЙВ-EA | Единый государственный портал</div>
+    <div class="meta">статус: функционирует | режим: наблюдение</div>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="purpose.html">Цель</a>
+    <a href="history.html">История</a>
+    <a href="contours.html">Контуры</a>
+    <a href="ark.html">Ковчег</a>
+    <a href="jobs.html">Работа</a>
+    <a href="support.html">Поддержка</a>
+</nav>
+
+<div class="container">
+
+<section class="card">
+
+    <div class="status-pill">● СИСТЕМА В РЕЖИМЕ МОНИТОРИНГА</div>
+
+    <h2>ПРОГРАММА “СЕЙВ“</h2>
+
+    <div class="info-text">
+        Межрегиональная система долгосрочного сохранения человеческой популяции,
+        биологического разнообразия и критически важных элементов экосистемы
+        в условиях планетарной трансформации.
+    </div>
+
+</section>
+
+<section class="card">
+
+    <h2>СИСТЕМНЫЕ ПОКАЗАТЕЛИ</h2>
+
+    <div class="grid-2">
+
+        <div>
+            <p><strong>Уровень мирового океана</strong></p>
+            <div class="water-bar">
+                <div id="water" class="water-fill"></div>
+            </div>
+            <p id="waterText"></p>
+        </div>
+
+        <div>
+            <p><strong>УФ-излучение</strong></p>
+            <div class="water-bar">
+                <div id="uv" class="water-fill uv"></div>
+            </div>
+            <p id="uvText"></p>
+            <p id="uvStatus"></p>
+        </div>
+
+    </div>
+
+    <div id="warningBox" class="warning-box hidden"></div>
+
+</section>
+
+<section class="card">
+
+    <h2>ПРОГНОЗ КРИТИЧЕСКОЙ ТОЧКИ</h2>
+
+    <p>Целевая дата: 08.2115</p>
+
+    <div id="timer" class="timer"></div>
+
+    <!-- КНОПКА УДАЛЕНА -->
+
+</section>
+
+</div>
+
+<footer>
+    © СЕЙВ-ЕА
+</footer>
+
+<script>
+let level = 71;
+
+function updateWater() {
+    level += Math.random() * 0.03;
+    document.getElementById("water").style.width = level + "%";
+    document.getElementById("waterText").innerText =
+        "Текущий уровень: " + level.toFixed(2) + "%";
+}
+setInterval(updateWater, 2000);
+updateWater();
+
+let uvLevel = 2.3;
+
+function getUVStatus(value) {
+    if (value < 3) return ["Низкий", "#22c55e"];
+    if (value < 6) return ["Умеренный", "#facc15"];
+    if (value < 8) return ["Высокий", "#f97316"];
+    return ["Критический", "#ef4444"];
+}
+
+function updateUV() {
+    uvLevel += (Math.random() - 0.5) * 0.1;
+    uvLevel = Math.max(0, Math.min(8, uvLevel));
+
+    document.getElementById("uv").style.width = (uvLevel * 10) + "%";
+    document.getElementById("uvText").innerText =
+        "Индекс: " + uvLevel.toFixed(2);
+
+    const [status, color] = getUVStatus(uvLevel);
+
+    document.getElementById("uvStatus").innerText =
+        "Статус: " + status;
+
+    document.getElementById("uvStatus").style.color = color;
+
+    const box = document.getElementById("warningBox");
+
+    if (uvLevel >= 6) {
+        box.classList.remove("hidden");
+        box.innerText = "⚠ КРИТИЧЕСКИЙ УРОВЕНЬ УФ-ИЗЛУЧЕНИЯ";
+    } else if (uvLevel >= 3) {
+        box.classList.remove("hidden");
+        box.innerText = "ℹ Повышенный уровень УФ-излучения";
+    } else {
+        box.classList.add("hidden");
+    }
+}
+
+setInterval(updateUV, 2000);
+updateUV();
+
+const target = new Date("2115-08-01");
+
+function updateTimer() {
+    const now = new Date();
+    const diff = target - now;
+
+    const years = Math.floor(diff / (1000*60*60*24*365));
+    const days = Math.floor(diff / (1000*60*60*24)) % 365;
+
+    document.getElementById("timer").innerText =
+        years + " лет " + days + " дней";
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+</script>
+
+</body>
+</html>
